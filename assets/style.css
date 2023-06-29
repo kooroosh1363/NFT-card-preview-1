@@ -9,7 +9,7 @@
     --secColor: #1D267D;
     --thiColor: #5C469C;
     --forColor: #D4ADFC;
-    --fifColor: #00ffff;
+    --fifColor: rgb(109, 243, 243);
     --sixColor: #fff;
 }
 
@@ -54,12 +54,12 @@ body{
 }
 
 
-.cards-img img::after{
-    --fifColor: hsla(178, 100%,50%, 0.5);
+.cards-img::after{
+    --fifColor: rgb(109, 243, 243,0.4);
 
-    content: url(/assets/img/icon-view.svg);
+    content: url(/assets/img/icon-view.svg) !important;
     background: var(--fifColor);
-    position: absolute;
+    position: absolute !important;
     inset: 0;
     display: flex;
     justify-content: center;
@@ -114,9 +114,58 @@ body{
 
 
 
-price-cards,
-countdown-card{
+.price-cards,
+.countdown-card{
     display: flex;
     align-items: center;
     font-weight: 600;
 }
+
+
+
+.price-cards{
+    color: var(--fifColor);
+}
+
+
+.icon-cards{
+    margin-right: 8px;
+}
+
+
+.countdown-cards{
+    color: var(--forColor);
+}
+
+
+.footer-cards{
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+.author-img{
+    width: 65px;
+    height: 50px;
+    border-radius: 40px;
+    margin-right: 10px;
+}
+
+
+.author-cards{
+    color: var(--forColor);
+    font-weight: 600;
+}
+
+
+.author-cards a{
+    color: var(--sixColor);
+    font-weight: 600;
+}
+
+.author-cards:hover{
+    color: var(--fifColor);
+}
+
+

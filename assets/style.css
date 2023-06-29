@@ -55,6 +55,8 @@ body{
 
 
 .cards-img img::after{
+    --fifColor: hsla(178, 100%,50%, 0.5);
+
     content: url(/assets/img/icon-view.svg);
     background: var(--fifColor);
     position: absolute;
@@ -63,5 +65,58 @@ body{
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: 0.1s;
+    transition:all 0.25s ease;
+}
+
+
+.cards-img:hover::after{
+    opacity: 1;
+}
+
+
+.cards-img img{
+    width: 100%;
+    display: block;
+}
+
+
+.body-cards{
+    padding: 25px 0;
+    border-bottom: 1px solid var(--thiColor);
+    margin-bottom: 15px;
+}
+
+.cards-title{
+    color: var(--sixColor);
+    margin-bottom: 15px;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.cards-title:hover{
+    color: var(--fifColor);
+}
+
+
+.text-cards{
+    color: var(--forColor);
+    font-size: 20px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+
+.wrapp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+price-cards,
+countdown-card{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
 }

@@ -1,0 +1,13 @@
+{
+  "name": "chainframe-nft-preview",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "node --check assets/nft-core.js && node --check assets/nft-data.js && node --check assets/app.js",
+    "test": "node --test",
+    "static-check": "node scripts/check-static.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "npm run lint && npm test && npm run static-check && npm run build"
+  }
+}

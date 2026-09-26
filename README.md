@@ -155,7 +155,16 @@ The deployable output is written to `dist/`.
 
 ## Deployment
 
-The Pages workflow builds `dist/` and deploys it when `main` changes.
+A GitHub Pages workflow is included, but GitHub requires Pages to be enabled once at the repository level before the workflow can deploy.
+
+In GitHub:
+
+1. Open **Settings → Pages**
+2. Set **Source** to **GitHub Actions**
+3. Open **Actions → Deploy Pages**
+4. Run the workflow manually
+
+The workflow then builds `dist/` and deploys that artifact.
 
 ## License
 

@@ -1,44 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>NFT card</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ChainFrame is a framework-free, accessible NFT preview component with exact wei formatting, a tested countdown, and progressive interactions.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <title>ChainFrame — NFT Preview Component</title>
+  <link rel="stylesheet" href="./assets/style.css">
+  <script type="module" src="./assets/app.js"></script>
 </head>
 <body>
-    <div class="cards">
-        <div class="head-cards">
-            <div class="cards-img">
-                <img src="./assets/img/Crypto-news-Template19.jpg" alt="">
-            </div>
+  <a class="skip-link" href="#preview">Skip to preview</a>
+
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Framework-free component / exact unit formatting</p>
+        <h1 id="page-title">A collectible card treated like a real interface component.</h1>
+      </div>
+      <p class="intro-copy">
+        ChainFrame turns a 2023 static card exercise into a data-driven, accessible preview
+        with deterministic Ethereum-unit formatting, a live deadline, keyboard-friendly
+        artwork inspection, and persisted save state.
+      </p>
+    </section>
+
+    <section id="preview" class="preview-stage" aria-label="NFT preview component">
+      <div class="engineering-note" aria-label="Implementation highlights">
+        <span>Exact price</span><strong>BigInt wei → ETH</strong>
+        <span>Interaction</span><strong>Native dialog + keyboard</strong>
+        <span>State</span><strong>LocalStorage favorite</strong>
+        <span>Runtime</span><strong>Zero dependencies</strong>
+      </div>
+
+      <div class="card-mount" data-card-mount aria-live="off">
+        <p class="loading-copy">Loading preview component…</p>
+      </div>
+    </section>
+
+    <noscript>
+      <p class="noscript-note">
+        This portfolio demo uses a small JavaScript module to render validated preview metadata.
+      </p>
+    </noscript>
+  </main>
+
+  <template id="nft-card-template">
+    <article class="nft-card" data-nft-card>
+      <div class="artwork-shell">
+        <img data-artwork class="artwork" width="720" height="720" alt="">
+        <button class="preview-button" type="button" data-preview aria-label="Open larger artwork preview">
+          <span aria-hidden="true">↗</span>
+          Preview
+        </button>
+        <button class="favorite-button" type="button" data-favorite aria-pressed="false">
+          <span class="heart" aria-hidden="true">♥</span>
+          <span data-favorite-label>Save</span>
+        </button>
+      </div>
+
+      <div class="card-body">
+        <p class="collection" data-collection></p>
+        <h2 data-title></h2>
+        <p class="description" data-description></p>
+
+        <dl class="market-metadata">
+          <div>
+            <dt>Preview price</dt>
+            <dd data-price></dd>
+          </div>
+          <div>
+            <dt>Time remaining</dt>
+            <dd>
+              <time data-deadline>
+                <span data-countdown aria-live="polite">—</span>
+              </time>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="identity-row">
+          <div class="avatar" aria-hidden="true">JD</div>
+          <div>
+            <span class="identity-label">Creator</span>
+            <strong data-creator></strong>
+            <span data-creator-handle></span>
+          </div>
         </div>
 
-        <div class="body-cards">
-            <a href="#">
-                <h3 class="cards-title">Ethereum #5677</h3>
-            </a>
+        <dl class="technical-metadata">
+          <div><dt>Token</dt><dd data-token-id></dd></div>
+          <div><dt>Chain</dt><dd data-chain></dd></div>
+          <div><dt>Source</dt><dd data-provenance></dd></div>
+        </dl>
 
-            <p class="text-cards">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, assumenda.</p>
+        <p class="disclaimer">
+          Demo metadata only. This interface does not connect to a wallet, marketplace,
+          smart contract, or blockchain node.
+        </p>
+      </div>
+    </article>
+  </template>
 
-            <div class="wrapp">
-                <div class="price-cards">
-                    <img src="./assets/img/icon-ethereum.svg" class="icon-cards" alt="">
-                    <span>000.0033 eth</span>
-                </div>
-
-                <div class="countdown-cards">
-                    <img src="./assets/img/icon-clock.svg" class="icon-card" alt="">
-                    <span>4 days left</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-cards">
-            <img src="./assets/img/user3.png" class="author-img" alt="">
-            <P class="author-cards">create by <a href="#">john doe</a></P>
-        </div>
+  <dialog id="artwork-dialog" class="artwork-dialog" aria-labelledby="dialog-caption">
+    <div class="dialog-toolbar">
+      <strong id="dialog-caption">Artwork preview</strong>
+      <button type="button" data-close-dialog aria-label="Close artwork preview">Close</button>
     </div>
-    
+    <img id="dialog-image" alt="">
+  </dialog>
 </body>
 </html>
